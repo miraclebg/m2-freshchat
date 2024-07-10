@@ -1,0 +1,28 @@
+{
+    "name": "nimasystems/module-m2-freshchat",
+    "description": "Freshchat M2 integration",
+    "config": {
+        "sort-packages": true
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Nimasystems\\Freshchat\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Martin Kovachev",
+            "email": "miracle@nimasystems.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "~7.4",
+        "magento/framework": "103.0.*"
+    }
+}
