@@ -11,7 +11,7 @@ namespace Nimasystems\Freshchat\Block;
 use Magento\Framework\View\Element\Template;
 use Nimasystems\Freshchat\Helpers\Data;
 
-class Chat extends Template
+class Head extends Template
 {
     /**
      * @var Data
@@ -27,8 +27,19 @@ class Chat extends Template
         $this->dataHelper = $dataHelper;
     }
 
-    public function isFreshdeskEnabled(): bool
+    public function getFreshchatConfig(): array
     {
-        return $this->dataHelper->getFreshchatEnabled();
+        return [
+            'generic' => [
+                'freshchatUpdateUrl' => $this->dataHelper->getFreshchatUpdateUrl(),
+            ],
+            'freshchat' => [
+                'enabled' => $this->dataHelper->getFreshchatEnabled(),
+                'token' => $this->dataHelper->getFreshchatToken(),
+                'host' => $this->dataHelper->getFreshchatHost(),
+                'siteId' => $this->dataHelper->getFreshchatSiteId(),
+            ],
+        ];
+
     }
 }

@@ -9,6 +9,8 @@ declare(strict_types=1);
 namespace Nimasystems\Freshchat\Helpers;
 
 use Magento\Framework\App\Helper\AbstractHelper;
+use Magento\Framework\App\Helper\Context;
+use Magento\Framework\Url;
 use Magento\Store\Model\ScopeInterface;
 
 class Data extends AbstractHelper
@@ -16,6 +18,24 @@ class Data extends AbstractHelper
     const MODULE_NAME = 'Nimasystems_Freshchat';
 
     const XML_PATH_GENERIC = 'nimasystems_freshchat/generic/';
+    const XML_PATH_FRESHCHAT = 'nimasystems_freshchat/freshchat/';
+
+    /**
+     * @var Url
+     */
+    protected Url $urlHelper;
+
+    /**
+     * @param Context $context
+     * @param Url $urlHelper
+     */
+    public function __construct(Context $context,
+                                Url     $urlHelper)
+    {
+        parent::__construct($context);
+
+        $this->urlHelper = $urlHelper;
+    }
 
     /**
      * @param string $code
@@ -30,13 +50,31 @@ class Data extends AbstractHelper
         );
     }
 
-    public function getFreshdeskLivechatEnabled(): bool
+    public function getFreshchatEnabled(): bool
     {
-        return $this->getStoreConfig('freshdesk_enable_livechat') == '1';
+        return $this->getStoreConfig('enabled', null, self::XML_PATH_FRESHCHAT) == '1';
     }
 
-    public function getFreshdeskWidgetJsSrc(): ?string
+    public function getFreshchatToken(): ?string
     {
-        return $this->getStoreConfig('freshdesk_widget_js_src');
+        return $this->getStoreConfig('token', null, self::XML_PATH_FRESHCHAT);
+    }
+
+    public function getFreshchatHost(): ?string
+    {
+        return $this->getStoreConfig('host', null, self::XML_PATH_FRESHCHAT);
+    }
+
+    public function getFreshchatSiteId(): ?string
+    {
+        return $this->getStoreConfig('site_id', null, self::XML_PATH_FRESHCHAT);
+    }
+
+    /**
+     * @return string
+     */
+    public function getFreshchatUpdateUrl(): string
+    {
+        return $this->urlHelper->getUrl('nimasystems_freshchat/freshchat/update', ['_secure' => true]);
     }
 }

@@ -11,23 +11,35 @@
         <tab id="nimasystems" translate="label" sortOrder="-9999">
             <label>Nimasystems</label>
         </tab>
-        <section id="nimasystems" translate="label" type="text" sortOrder="-9999" showInDefault="1" showInWebsite="1"
+        <section id="nimasystems_freshchat" translate="label" type="text" sortOrder="-9999" showInDefault="1"
+                 showInWebsite="1"
                  showInStore="1">
             <tab>nimasystems</tab>
-            <label>Nimasystems</label>
+            <label>Freshchat</label>
             <resource>Nimasystems_Freshchat::config</resource>
-            <group id="generic" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1"
+            <group id="freshchat" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1"
                    showInStore="1">
                 <label>Chat Settings</label>
-                <field id="freshdesk_enable_livechat" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20"
+                <field id="enabled" type="select" showInDefault="1" showInWebsite="1" showInStore="1"
+                       sortOrder="20"
                        translate="label">
-                    <label>Freshdesk Enabled</label>
+                    <label>Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="freshdesk_widget_js_src" translate="label" type="text" sortOrder="21" showInDefault="1"
+                <field id="token" translate="label" type="text" sortOrder="21" showInDefault="1"
                        showInWebsite="1"
                        showInStore="1">
-                    <label>Freshdesk Widget Javascript Src</label>
+                    <label>Token</label>
+                </field>
+                <field id="host" translate="label" type="text" sortOrder="22" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Host</label>
+                </field>
+                <field id="site_id" translate="label" type="text" sortOrder="23" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Site ID</label>
                 </field>
             </group>
         </section>

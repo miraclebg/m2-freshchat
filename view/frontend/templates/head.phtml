@@ -1,0 +1,23 @@
+<?php
+/**
+ * Copyright © Nimasystems (info@nimasystems.com). All rights reserved.
+ * Please visit Nimasystems.com for license details
+ */
+
+declare(strict_types=1);
+
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+use Nimasystems\Freshchat\Block\Chat;
+use Nimasystems\Freshchat\Block\Head;
+
+/** @var $block Head */
+
+?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Nimasystems_Freshchat/js/view/chat": <?php echo json_encode($block->getFreshchatConfig()); ?>
+    }
+}
+</script>
