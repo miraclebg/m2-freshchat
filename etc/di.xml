@@ -8,12 +8,6 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 
-    <preference for="Nimasystems\Freshchat\Api\Data\FreshchatDataInterface"
-                type="Nimasystems\Freshchat\Model\FreshchatDataUpdaterResponse"/>
-
-    <preference for="Nimasystems\Freshchat\Api\FreshchatDataUpdaterInterface"
-                type="Nimasystems\Freshchat\Model\FreshchatDataUpdater"/>
-
     <type name="Magento\Customer\CustomerData\Customer">
         <plugin name="nimasystems_freshchat_customer_info" type="Nimasystems\Freshchat\Plugin\FreshchatCustomerInfo"
                 disabled="false"/>

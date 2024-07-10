@@ -6,6 +6,13 @@ define([
 ], function ($, customerData, $t) {
     'use strict'
 
+    function trackEvent(widget, eventName, eventData) {
+        console.log('trackEvent', {
+            eventName, eventData
+        });
+        widget.track(eventName, eventData);
+    }
+
     function submitRestoreId(config, restoreId) {
 
         console.log('Submitting freshchat restoreId', restoreId);
@@ -40,6 +47,10 @@ define([
 
         console.info('freshchatContext.user', {
             user: widget.user
+        });
+
+        trackEvent(widget, 'testme', {
+            xyz: 123
         });
     }
 

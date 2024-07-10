@@ -5,9 +5,4 @@
         <block class="Nimasystems\Freshchat\Block\Head" before="-" template="Nimasystems_Freshchat::head.phtml"
                name="nimasystems.freshchat.head.additional"/>
     </referenceBlock>
-
-    <referenceContainer name="before.body.end">
-        <block class="Nimasystems\Freshchat\Block\Chat" name="nimasystems_freshchat_chat"
-               template="Nimasystems_Freshchat::chat.phtml"/>
-    </referenceContainer>
 </page>
